@@ -42,7 +42,6 @@ steps:
           echo "******* At environment: ${env} ********"
           echo "*************************************************"
           terraform init || exit 1
-          cd ../../
         done
       fi 
 # [START tf-plan]
@@ -65,7 +64,6 @@ steps:
           echo "******* At environment: ${env} ********"
           echo "*************************************************"
           terraform plan || exit 1
-          cd ../../
         done
       fi 
 # [END tf-plan]
