@@ -1,16 +1,10 @@
-resource "google_compute_instance" "vm-from-tf" {
-  name = "vm-from-tf"
-  machine_type = "n1-standard-1"
+module "gcloud" {
+  source  = "terraform-google-modules/gcloud/google"
+  version = "~> 2.0"
 
-  boot_disk {
-    initialize_params {
-      image = "debian-9-stretch-v20220118"
-    }
-  }
+  platform = "linux"
+  additional_components = ["kubectl", "beta"]
 
-  network_interface {
-    network = "default"
-    subnetwork = "default"
-  }
-
+  create_cmd_entrypoint  = "gcloud"
+  create_cmd_body        = "container clusters create cicd-cluster --machine-type=g1-small --num-nodes=3 --zone=us-central1-a"
 }
