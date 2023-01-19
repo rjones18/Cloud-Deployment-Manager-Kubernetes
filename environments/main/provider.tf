@@ -9,7 +9,7 @@ terraform {
 
 provider "google" {
   # Configuration options
-  project = "alert-flames-286515"
+  #project = "alert-flames-286515"
   region = "us-central1"
   zone = "us-central1-a"
   #credentials = "keys-tf.json"
