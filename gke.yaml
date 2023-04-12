@@ -1,0 +1,11 @@
+imports:
+  - path: gke.py
+
+resources:
+  - name: simple-go-app-cluster
+    type: gke.py
+    properties:
+      zone: us-central1-a
+      initialNodeCount: 3
+      machineType: n1-standard-1
+
