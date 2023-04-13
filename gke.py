@@ -1,11 +1,11 @@
 def GenerateConfig(context):
     resources = [{
-        'name': 'simple-go-app-cluster',
+        'name': 'signup-app-cluster',
         'type': 'container.v1.cluster',
         'properties': {
             'zone': context.properties['zone'],
             'cluster': {
-                'name': 'simple-go-app-cluster',
+                'name': 'signup-app-cluster',
                 'initialNodeCount': context.properties['initialNodeCount'],
                 'nodeConfig': {
                     'machineType': context.properties['machineType']

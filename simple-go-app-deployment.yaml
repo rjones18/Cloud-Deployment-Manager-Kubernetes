@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-go-app
+  name: signup-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: simple-go-app
+      app: signup-app
   template:
     metadata:
       labels:
-        app: simple-go-app
+        app: signup-app
     spec:
       containers:
-      - name: simple-go-app
-        image: gcr.io/alert-flames-286515/simple-go-app@sha256:884e3b0e644a3ecaa2531d5ab1fb0c0de94552120771841728c55bc5eb2fe629
+      - name: signup-app
+        image: gcr.io/alert-flames-286515/signup-python-app:latest
         ports:
         - containerPort: 8080

@@ -2,7 +2,7 @@ imports:
   - path: gke.py
 
 resources:
-  - name: simple-go-app-cluster
+  - name: signup-app-cluster
     type: gke.py
     properties:
       zone: us-central1-a
