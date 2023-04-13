@@ -9,7 +9,7 @@ def GenerateConfig(context):
                 'initialNodeCount': context.properties['initialNodeCount'],
                 'nodeConfig': {
                     'machineType': context.properties['machineType'],
-                    'serviceAccount': '904016781596-compute@developer.gserviceaccount.com '
+                    'serviceAccount': '904016781596-compute@developer.gserviceaccount.com'
                 },
             }
         }
