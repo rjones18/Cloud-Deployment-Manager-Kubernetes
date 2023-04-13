@@ -12,26 +12,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 steps:
-- id: 'Deploy to Cloud Deployment Manager'
+- id: 'Deploy Cloud Deployment Manager Template'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
-  args: ['-c', 'gcloud deployment-manager deployments create simple-go-app-cluster --config gke.yaml']
+  args: ['-c', 'gcloud deployment-manager deployments create signup-app-cluster --config gke.yaml']
 
 
 - id: 'Get Cluster Credentials'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
-  args: ['-c', 'gcloud container clusters get-credentials simple-go-app-cluster --zone us-central1-a']  
+  args: ['-c', 'gcloud container clusters get-credentials signup-app-cluster --zone us-central1-a']  
 
 - id: 'Deploy GCR Image to Kubernetes Cluster'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
-  args: ['-c', 'kubectl apply -f simple-go-app-deployment.yaml']  
+  args: ['-c', 'kubectl apply -f signup-app-deployment.yaml']  
 
 - id: 'Expose Deployment'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
-  args: ['-c', 'kubectl expose deployment simple-go-app --type=LoadBalancer --port 80 --target-port 8080']  
+  args: ['-c', 'kubectl expose deployment signup-app --type=LoadBalancer --port 80 --target-port 8080']  
 
 options:
   logging : CLOUD_LOGGING_ONLY
