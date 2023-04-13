@@ -5,6 +5,8 @@ To enhance the application's security, I integrated Snyk into the CI/CD pipeline
 
 Additionally, I assigned a custom domain name to the cluster using Google Domains, further enhancing the accessibility and professional appearance of the deployed application. The project exemplifies a sophisticated and efficient approach to deploying containerized applications on GKE with the aid of Google Cloud's robust suite of tools and services, along with added security measures provided by Snyk.
 
+Link to Website: http://signup.reggietestgcpdomain.com (Not Currently Deployed)
+
 The Kubernetes Cluster is broken down into the architecture below:
 
 ![kubernetespython](https://github.com/rjones18/Images/blob/main/Screen%20Shot%202023-04-12%20at%208.52.06%20PM.png)
