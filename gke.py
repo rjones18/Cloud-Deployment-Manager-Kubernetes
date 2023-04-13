@@ -8,10 +8,12 @@ def GenerateConfig(context):
                 'name': 'signup-app-cluster',
                 'initialNodeCount': context.properties['initialNodeCount'],
                 'nodeConfig': {
-                    'machineType': context.properties['machineType']
+                    'machineType': context.properties['machineType'],
+                    'serviceAccount': '904016781596-compute@developer.gserviceaccount.com '
                 },
             }
         }
     }]
     return {'resources': resources}
+
 
