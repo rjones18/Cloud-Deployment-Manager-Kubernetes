@@ -7,6 +7,10 @@ Additionally, I assigned a custom domain name to the cluster using Google Domain
 
 Link to Website: http://signup.reggietestgcpdomain.com (Not Currently Deployed)
 
+Link to the Docker Build Pipeline for this Project:
+
+- [Python Signup App Image Build](https://github.com/rjones18/GCP-Signup-Website-Dockerbuild)
+
 ## Architecture Breakdown
 
 The Kubernetes Cluster is broken down into the architecture below:
@@ -14,7 +18,4 @@ The Kubernetes Cluster is broken down into the architecture below:
 ![kubernetespython](https://github.com/rjones18/Images/blob/main/Screen%20Shot%202023-04-12%20at%208.52.06%20PM.png)
 
 
-Link to the Docker Build Pipeline for this Project:
-
-- [Python Signup App Image Build](https://github.com/rjones18/GCP-Signup-Website-Dockerbuild)
 
