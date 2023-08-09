@@ -16,7 +16,14 @@ steps:
 - id: 'Deploy Cloud Deployment Manager Template'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
-  args: ['-c', 'gcloud deployment-manager deployments create signup-app-cluster --config gke.yaml --update']
+  args: 
+    - '-c'
+    - |
+      if gcloud deployment-manager deployments describe signup-app-cluster &> /dev/null; then
+        gcloud deployment-manager deployments update signup-app-cluster --config gke.yaml
+      else
+        gcloud deployment-manager deployments create signup-app-cluster --config gke.yaml
+      fi
 
 - id: 'Get Cluster Credentials'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
