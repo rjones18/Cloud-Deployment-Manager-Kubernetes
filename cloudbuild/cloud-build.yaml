@@ -11,28 +11,28 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 steps:
 - id: 'Deploy Cloud Deployment Manager Template'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
-  args: ['-c', 'gcloud deployment-manager deployments create signup-app-cluster --config gke.yaml']
-
+  args: ['-c', 'gcloud deployment-manager deployments create signup-app-cluster --config gke.yaml --update']
 
 - id: 'Get Cluster Credentials'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
-  args: ['-c', 'gcloud container clusters get-credentials signup-app-cluster --zone us-central1-a']  
+  args: ['-c', 'gcloud container clusters get-credentials signup-app-cluster --zone us-central1-a']
 
 - id: 'Deploy GCR Image to Kubernetes Cluster'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
-  args: ['-c', 'kubectl apply -f signup-app-deployment.yaml']  
+  args: ['-c', 'kubectl apply -f signup-app-deployment.yaml']
 
 - id: 'Expose Deployment'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
-  args: ['-c', 'kubectl expose deployment signup-app --type=LoadBalancer --port 80 --target-port 8080']  
+  args: ['-c', 'kubectl get svc signup-app || kubectl expose deployment signup-app --type=LoadBalancer --port 80 --target-port 8080']
 
 options:
-  logging : CLOUD_LOGGING_ONLY
+  logging: CLOUD_LOGGING_ONLY
 timeout: 1600s
